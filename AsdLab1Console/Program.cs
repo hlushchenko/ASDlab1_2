@@ -12,7 +12,7 @@ namespace AsdLab1Console
             Console.WriteLine(cb);
             Console.WriteLine();
             Stopwatch a = Stopwatch.StartNew();
-            Console.WriteLine(((SearchTree.TreeNode)Astar.Search(new SearchTree.TreeNode(cb))).State);
+            Console.WriteLine(((TreeNode)Astar.Search(new TreeNode(cb))).State);
             a.Stop();
             Console.WriteLine(a.Elapsed);
         }

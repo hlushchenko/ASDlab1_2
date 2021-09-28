@@ -2,32 +2,29 @@
 
 namespace AsdLab1Console
 {
-    public class SearchTree
+    public class TreeNode : IAstarState
     {
-        public class TreeNode : IAstarState
+        public int Priority => State.NumberOfConflicts;
+
+        public List<IAstarState> Children
         {
-            public int Priority => State.NumberOfConflicts;
-
-            public List<IAstarState> Children
+            get
             {
-                get
+                List<IAstarState> children = new List<IAstarState>();
+                foreach (var chessBoard in State.PossibleMoves)
                 {
-                    List<IAstarState> children = new List<IAstarState>();
-                    foreach (var chessBoard in State.PossibleMoves)
-                    {
-                        children.Add(new TreeNode(chessBoard));
-                    }
-                    return children;
+                    children.Add(new TreeNode(chessBoard));
                 }
-            }
 
-            public ChessBoard State;
-
-            public TreeNode(ChessBoard state)
-            {
-                State = state;
+                return children;
             }
-            
+        }
+
+        public readonly ChessBoard State;
+
+        public TreeNode(ChessBoard state)
+        {
+            State = state;
         }
     }
 }
