@@ -17,6 +17,7 @@ namespace AsdLab1Console
                 }
                 solution = priorityQueue.FindMin();
                 priorityQueue.DeleteMin();
+                //Console.WriteLine(((TreeNode)solution).State);
             }
             return solution;
         }

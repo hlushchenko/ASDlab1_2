@@ -7,8 +7,8 @@ namespace AsdLab1Console
     {
         static void Main(string[] args)
         {
-            byte[] array = {0, 0, 0, 0, 0, 0, 0, 0};
-            ChessBoard cb = new ChessBoard(array);
+            byte[] array = {3, 7, 0, 2, 5, 1, 6, 4};
+            ChessBoard cb = new ChessBoard();
             Console.WriteLine(cb);
             Console.WriteLine();
             Stopwatch a = Stopwatch.StartNew();

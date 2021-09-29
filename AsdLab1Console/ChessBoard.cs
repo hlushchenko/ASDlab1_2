@@ -28,7 +28,6 @@ namespace AsdLab1Console
                     if (_rows[i] == _rows[j] || Math.Abs(_rows[i]-_rows[j]) == Math.Abs(i-j))
                     {
                         number++;
-                        //Console.WriteLine($"{i+1} : {j+1}");
                     }
                 }
             }
@@ -54,7 +53,7 @@ namespace AsdLab1Console
             {
                 for (int j = 1; j <= 8; j++)
                 {
-                    result += _rows[i-1] == j-1 ? "()" : (i % 2 + j) % 2 == 1 ? "▓▓" : "░░";
+                    result += _rows[i-1] == j-1 ? " Ї " : (i % 2 + j) % 2 == 1 ? "▓▓▓" : "░░░";
                 }
                 result += '\n';
             }

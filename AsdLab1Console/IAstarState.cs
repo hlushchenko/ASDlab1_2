@@ -14,7 +14,8 @@ namespace AsdLab1Console
     {
         public override int Compare(IAstarState? x, IAstarState? y)
         {
-            return x.Priority.CompareTo(y.Priority);
+            if (x != null && y != null) return x.Priority.CompareTo(y.Priority);
+            return 0;
         }
     }
 }
