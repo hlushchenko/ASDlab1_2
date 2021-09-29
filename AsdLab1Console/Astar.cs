@@ -5,10 +5,10 @@ namespace AsdLab1Console
 {
     public static class Astar
     {
-        public static IAstarState Search(IAstarState node)
+        public static IAstarState Search(IAstarState origin)
         {
             IntervalHeap<IAstarState> priorityQueue = new IntervalHeap<IAstarState>(new AstarComparer());
-            var solution = node;
+            var solution = origin;
             while (solution.Priority != 0)
             {
                 foreach (var child in solution.Children)

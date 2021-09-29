@@ -7,12 +7,12 @@ namespace AsdLab1Console
     {
         static void Main(string[] args)
         {
-            byte[] array = {3, 7, 0, 2, 5, 1, 6, 4};
-            ChessBoard cb = new ChessBoard();
+            byte[] array = {0, 0, 0, 0, 0, 0, 0, 0};
+            ChessBoard cb = new ChessBoard(array);
             Console.WriteLine(cb);
             Console.WriteLine();
             Stopwatch a = Stopwatch.StartNew();
-            Console.WriteLine(((TreeNode)Astar.Search(new TreeNode(cb))).State);
+            Console.WriteLine(((TreeNode)Bfs.Search(new TreeNode(cb))).State);
             a.Stop();
             Console.WriteLine(a.Elapsed);
         }
