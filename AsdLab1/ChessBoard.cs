@@ -5,7 +5,7 @@ namespace AsdLab1
 {
     public class ChessBoard
     {
-        private byte[] _rows;
+        public byte[] _rows;
 
         public List<ChessBoard> PossibleMoves => _possibleMoves ??= GeneratePossibleMoves();
         public byte NumberOfConflicts { get; }

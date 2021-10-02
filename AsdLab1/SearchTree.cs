@@ -16,9 +16,16 @@ namespace AsdLab1
                     children.Add(new TreeNode(chessBoard));
                 }
 
+                foreach (var child in children)
+                {
+                    ((TreeNode)child).Parent = this;
+                }
+
                 return children;
             }
         }
+
+        public IState Parent { get; private set; }
 
         public readonly ChessBoard State;
 

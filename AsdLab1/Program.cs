@@ -6,25 +6,29 @@ namespace AsdLab1
     class Program
     {
         private delegate IState _methodDelegate(IState a);
+
         static void Main(string[] args)
         {
-            //byte[] array = {0, 0, 0, 0, 0, 0, 0, 0};
-            Console.WriteLine("Select solving method (1 - A*, 2 - BFS)");
-            int methodInt = 1;
-            Int32.TryParse(Console.ReadLine(), out methodInt);
-            _methodDelegate method = methodInt switch
+            byte[] array = {3, 5, 1, 2, 5, 1, 7, 1};
+
+            for (int j = 0; j < 2; j++)
             {
-                1 => Astar.Search,
-                2 => Bfs.Search,
-                _ => Astar.Search
-            };
-            ChessBoard cb = new ChessBoard();
-            Console.WriteLine("Start desk:\n" + cb +"\n");
-            Stopwatch a = Stopwatch.StartNew();
-            var result = (TreeNode)method(new TreeNode(cb));
-            Console.WriteLine("Result desk:\n"+result.State);
-            a.Stop();
-            Console.WriteLine("Time:" + a.Elapsed);
+                ChessBoard cbTest = new ChessBoard();
+                var testArray = ((TreeNode)Astar.Search(new TreeNode(cbTest))).State._rows;
+                Random random = new Random();
+                for (int i = 0; i < 2; i++)
+                {
+                    testArray[random.Next(8)] = (byte)random.Next(8);
+                }
+                testArray[random.Next(8)] = (byte)random.Next(8);
+
+
+                _methodDelegate method = Bfs.Search;
+                ChessBoard cb = new ChessBoard(testArray);
+                var result = (TreeNode)method(new TreeNode(cb));
+                Console.WriteLine($"{Bfs.Iterations} 0 {Bfs.Iterations} {Bfs.InMemory}");
+            }
+            
         }
     }
 }

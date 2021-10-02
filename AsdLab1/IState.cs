@@ -1,5 +1,4 @@
 ﻿#nullable enable
-using System.Collections;
 using System.Collections.Generic;
 
 namespace AsdLab1
@@ -8,6 +7,7 @@ namespace AsdLab1
     {
         int Priority { get; }
         List<IState> Children { get; }
+        IState Parent { get; }
     }
     
     public class AstarComparer : Comparer<IState>
