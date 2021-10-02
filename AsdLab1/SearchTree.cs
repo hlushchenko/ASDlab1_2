@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 
-namespace AsdLab1Console
+namespace AsdLab1
 {
-    public class TreeNode : IAstarState
+    public class TreeNode : IState
     {
         public int Priority => State.NumberOfConflicts;
 
-        public List<IAstarState> Children
+        public List<IState> Children
         {
             get
             {
-                List<IAstarState> children = new List<IAstarState>();
+                List<IState> children = new List<IState>();
                 foreach (var chessBoard in State.PossibleMoves)
                 {
                     children.Add(new TreeNode(chessBoard));

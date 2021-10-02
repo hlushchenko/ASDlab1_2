@@ -2,17 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace AsdLab1Console
+namespace AsdLab1
 {
-    public interface IAstarState
+    public interface IState
     {
         int Priority { get; }
-        List<IAstarState> Children { get; }
+        List<IState> Children { get; }
     }
     
-    public class AstarComparer : Comparer<IAstarState>
+    public class AstarComparer : Comparer<IState>
     {
-        public override int Compare(IAstarState? x, IAstarState? y)
+        public override int Compare(IState? x, IState? y)
         {
             if (x != null && y != null) return x.Priority.CompareTo(y.Priority);
             return 0;

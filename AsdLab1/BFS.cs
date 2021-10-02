@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace AsdLab1Console
+namespace AsdLab1
 {
     public static class Bfs
     {
-        public static IAstarState Search(IAstarState origin)
+        public static IState Search(IState origin)
         {
-            Queue<IAstarState> bfsQueue = new Queue<IAstarState>();
-            IAstarState currentNode = origin;
+            Queue<IState> bfsQueue = new Queue<IState>();
+            IState currentNode = origin;
             while (currentNode.Priority != 0)
             {
                 foreach (var child in currentNode.Children)

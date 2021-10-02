@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AsdLab1Console
+namespace AsdLab1
 {
     public class ChessBoard
     {

@@ -1,13 +1,13 @@
 ﻿using System;
 using C5;
 
-namespace AsdLab1Console
+namespace AsdLab1
 {
     public static class Astar
     {
-        public static IAstarState Search(IAstarState origin)
+        public static IState Search(IState origin)
         {
-            IntervalHeap<IAstarState> priorityQueue = new IntervalHeap<IAstarState>(new AstarComparer());
+            IntervalHeap<IState> priorityQueue = new IntervalHeap<IState>(new AstarComparer());
             var solution = origin;
             while (solution.Priority != 0)
             {
@@ -17,7 +17,6 @@ namespace AsdLab1Console
                 }
                 solution = priorityQueue.FindMin();
                 priorityQueue.DeleteMin();
-                //Console.WriteLine(((TreeNode)solution).State);
             }
             return solution;
         }
