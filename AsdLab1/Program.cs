@@ -17,13 +17,13 @@ namespace AsdLab1
                 2 => Bfs.Search,
                 _ => Astar.Search
             };
-            ChessBoard cb = new ChessBoard();
-            Console.WriteLine("Start desk:\n" + cb +"\n");
-            Stopwatch a = Stopwatch.StartNew();
-            var result = search(new TreeNode(cb));
-            Console.WriteLine("Result desk:\n"+result);
-            a.Stop();
-            Console.WriteLine("Time:" + a.Elapsed);
+            var board = new ChessBoard();
+            Console.WriteLine("Start chessboard:\n" + board +"\n");
+            var stopwatch = Stopwatch.StartNew();
+            var result = search(new TreeNode(board));
+            Console.WriteLine("Result chessboard:\n"+result);
+            stopwatch.Stop();
+            Console.WriteLine("Time:" + stopwatch.Elapsed);
         }
     }
 }
