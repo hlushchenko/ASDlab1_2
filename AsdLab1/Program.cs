@@ -10,8 +10,7 @@ namespace AsdLab1
         {
             //byte[] array = {0, 0, 0, 0, 0, 0, 0, 0};
             Console.WriteLine("Select solving method (1 - A*, 2 - BFS)");
-            int methodInt = 1;
-            Int32.TryParse(Console.ReadLine(), out methodInt);
+            Int32.TryParse(Console.ReadLine(), out var methodInt);
             _methodDelegate search = methodInt switch
             {
                 1 => Astar.Search,
