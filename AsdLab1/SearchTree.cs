@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace AsdLab1
 {
@@ -25,6 +26,11 @@ namespace AsdLab1
         public TreeNode(ChessBoard state)
         {
             State = state;
+        }
+
+        public override string ToString()
+        {
+            return State.ToString();
         }
     }
 }

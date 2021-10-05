@@ -12,7 +12,7 @@ namespace AsdLab1
             Console.WriteLine("Select solving method (1 - A*, 2 - BFS)");
             int methodInt = 1;
             Int32.TryParse(Console.ReadLine(), out methodInt);
-            _methodDelegate method = methodInt switch
+            _methodDelegate search = methodInt switch
             {
                 1 => Astar.Search,
                 2 => Bfs.Search,
@@ -21,8 +21,8 @@ namespace AsdLab1
             ChessBoard cb = new ChessBoard();
             Console.WriteLine("Start desk:\n" + cb +"\n");
             Stopwatch a = Stopwatch.StartNew();
-            var result = (TreeNode)method(new TreeNode(cb));
-            Console.WriteLine("Result desk:\n"+result.State);
+            var result = search(new TreeNode(cb));
+            Console.WriteLine("Result desk:\n"+result);
             a.Stop();
             Console.WriteLine("Time:" + a.Elapsed);
         }
